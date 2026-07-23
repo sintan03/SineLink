@@ -1,0 +1,47 @@
+memorylink.task.title=Task Book
+
+memorylink.task.header.default=Main Menu
+
+memorylink.task.header.memorylink=Memory Link
+
+memorylink.task.memorylink.taskbook.name=TaskBook
+memorylink.task.memorylink.taskbook.description=Get a TaskBook.
+
+
+
+form.sinetask.main.title=Main Menu
+form.sinetask.group.close=Close
+form.sinetask.group.completedamount=Completed Tasks:
+sinetask.uncomplate=§c[Not achieved] §r§f
+sinetask.complate=§a[Achieved] §r§f
+
+sinetask.task.message=%s achieved the task §a[%s]§r§f
+sinetask.goal.message=%s achieved the goal §a[%s]§r§f
+sinetask.challenge.message=%s completed the challenge §d[%s]§r§f
+
+sinetask.ee.name=Exponential Enemy
+
+sinetask.ee:defeat1.name=It was a long ride
+sinetask.ee:defeat1.description=Defeat a Level 1 enemy\n§aVirtual attack power multiplied by 10 through real attacks§r§f
+sinetask.ee:attack_fail.name=Too reckless
+sinetask.ee:attack_fail.description=The attack is nullified by significant figures
+sinetask.ee:real_harsh.name=Reality is harsh
+sinetask.ee:real_harsh.description=The Real-Attack power becomes 1
+sinetask.ee:limit_image.name=The Limits of Imagination
+sinetask.ee:limit_image.description=The Real-Attack power becomes 10
+
+sinetask.mac.name=Mine Crafter
+
+sinetask.mac:big.name=Careful "Entity Destroyer"
+sinetask.mac:big.description=Get Mine Crafter
+sinetask.mac:useful.name=Can use Mobile
+sinetask.mac:useful.description=Get Mine Crafter Mobile
+
+sinetask.parry.name=Parry Addon
+
+sinetask.parry:pass.name=I'll pass again today
+sinetask.parry:pass.description=Get Parry Shield
+sinetask.parry:hold.name=There's no way I can hold it
+sinetask.parry:hold.description=Get Lance
+sinetask.parry:swing.name=There's no way I can swing it
+sinetask.parry:swing.description=Get Long Sword

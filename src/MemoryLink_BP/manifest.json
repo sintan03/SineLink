@@ -1,0 +1,43 @@
+{
+  "format_version": 2,
+  "header": {
+    "name": "MemoryLink",
+    "description": "連携+進捗アドオン",
+    "uuid": "212f35cb-17fc-48c2-a271-234557652325",
+    "version": [1, 0, 0],
+    "min_engine_version": [
+      1,
+      21,
+      101
+    ]
+  },
+  "modules": [
+    {
+      "type": "script",
+      "language": "javascript",
+      "uuid": "80cef421-b562-4b5b-a58a-bae45e2886db",
+      "entry": "scripts/main.js",
+      "version": [1, 0, 0]
+    },
+    {
+      "description": "連携+進捗アドオン",
+      "type": "data",
+      "uuid": "3f1a7fe4-63b8-4589-89ec-960085dc7c07",
+      "version": [1, 0, 0]
+    }
+  ],
+  "dependencies": [
+    {
+      "uuid": "fcbd1064-671f-4363-bdd5-60407f83bedc",
+      "version": [1, 0, 0]
+    },
+    {
+      "module_name": "@minecraft/server",
+      "version": "2.8.0"
+    },
+    {
+      "module_name": "@minecraft/server-ui",
+      "version": "2.1.0"
+    }
+  ]
+}
