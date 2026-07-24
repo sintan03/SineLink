@@ -1,3 +1,8 @@
+memorylink.link.success=§r§e------------\n§d%s §eの導入に成功しました\nバージョン: §d%s\n§e前提アドオン:\n%s
+memorylink.link.fail=§r§e------------\n§d%s §cの導入に失敗しました\nバージョン: §d%s\n§c前提アドオン:\n%s
+
+
+
 memorylink.task.title=進捗の本
 
 memorylink.task.header.default=メインメニュー

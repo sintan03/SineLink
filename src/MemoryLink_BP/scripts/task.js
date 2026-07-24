@@ -14,7 +14,21 @@ system.runTimeout(() => {
         features: [
             {
                 id: "memorylink",
-                version: [1, 0, 0]
+                name: "MemoryLink",
+                version: [0, 0, 1]
+            }
+        ]
+    });
+
+    const initb = JSON.stringify({
+        id: "linktestb",
+        name: "LinkTestB",
+        version: [1, 0, 0],
+        features: [
+            {
+                id: "memorylink",
+                name: "MemoryLink",
+                version: [1, 0, 1]
             }
         ]
     });
@@ -34,6 +48,7 @@ system.runTimeout(() => {
     });
 
     system.sendScriptEvent(`memorylink:link`, init);
+    system.sendScriptEvent(`memorylink:link`, initb);
     system.sendScriptEvent(`memorylink:task_add`, data);
 
 }, 20);
@@ -137,11 +152,11 @@ world.afterEvents.itemUse.subscribe(ev => {
 
         };
 
+        form.closeButton();
+
+        form.show();
+
     };
-
-    form.closeButton();
-
-    form.show();
 
 });
 
@@ -175,9 +190,10 @@ system.afterEvents.scriptEventReceive.subscribe(ev => {
 
         };
 
-    } else if (`memorylink:task_add`) {
+    } else if (id === `memorylink:task_add`) {
 
         taskData.push(JSON.parse(message));
+        console.error(JSON.stringify(taskData));
 
     };
 

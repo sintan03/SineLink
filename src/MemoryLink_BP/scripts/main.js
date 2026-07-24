@@ -17,19 +17,51 @@ system.afterEvents.scriptEventReceive.subscribe(ev => {
         linkData[data.id] = data;
 
     };
-    
+
 });
 
 
 
 system.runTimeout(() => {
 
+    let i = 0;
     for (const key of Object.keys(linkData)) {
 
-        if (key === `memorylink`) continue;
+        i++;
 
+        /** @type { { id: String, name: String, version: Number[], features: { id: String, name: String, version: Number[] }[] } } */
         const data = linkData[key];
-        world.sendMessage(`§r§a${data.name} §eの導入に成功しました\nバージョン: §a${data.version.join(".")}\n§e要求アドオン: §a\n${data.features.map(value => `${linkData[value.id].name}: ${value.version.join(".")}`).join("\n")}`);
+        const success = data.features.every(value => {
+            let forceTrue = false;
+            return value.version.every((element, index) => {
+                if (!forceTrue) {
+                    forceTrue = element < (linkData[value.id]?.version[index] ?? -1);
+                };
+                if (forceTrue) return true;
+                return element === (linkData[value.id]?.version[index] ?? -1);
+            });
+        });
+
+        world.sendMessage({
+            rawtext: [{
+                translate: `memorylink.link.${success ? "success" : "fail"}`, with: {
+                    rawtext: [
+                        {
+                            text: `${data.name}`
+                        },
+                        {
+                            text: `${data.version.join(".")}`
+                        },
+                        {
+                            text: `${data.features.map(value => `§d${value.name}: ${value.version.join(".")}`).join("\n")}`
+                        }
+                    ]
+                },
+            },
+            {
+                text: `${i === Object.keys(linkData).length ? "\n§e------------" : ""}`
+            }]
+        });
 
     };
 
