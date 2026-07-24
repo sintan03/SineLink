@@ -1,7 +1,7 @@
 import { world, system, Player } from "@minecraft/server";
 import { CustomForm, ObservableBoolean, ObservableUIRawMessage } from "@minecraft/server-ui";
 
-import { ITEMS, linkData, nameColor, taskData } from "./data.js";
+import { ITEMS, nameColor, taskData } from "./data.js";
 
 
 
@@ -128,9 +128,11 @@ system.afterEvents.scriptEventReceive.subscribe(ev => {
             const messageSplit = message.split("_");
             const taskId = messageSplit[0];
             const taskName = messageSplit.filter((value, index) => index !== 0).join("_");
-            const taskType = taskData.find(value => value.id === taskId).tasks.find(value => value.id === taskName).type;
+            const foundData = taskData.find(value => value.id === taskId).tasks.find(value => value.id === taskName);
+            const taskType = foundData.type;
 
             world.sendMessage({ translate: `memorylink.task.${taskType}.message`, with: { rawtext: [{ text: sourceEntity.nameTag }, { translate: `memorylink.task.${taskId}.${taskName}.name` }] } });
+            sourceEntity.addExperience(foundData.xp);
             sourceEntity.playSound(`sinetask.ui.toast.in`, sourceEntity.location);
             system.runTimeout(() => {
                 sourceEntity.playSound(`sinetask.ui.toast.out`, sourceEntity.location);

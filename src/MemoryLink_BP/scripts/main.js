@@ -5,7 +5,29 @@ import { linkData } from "./data.js";
 
 import "./task.js";
 
+/*
 
+連携システム
+
+連携の情報を送るにはscripteventを使用します
+idは"memorylink:link"です
+送信するデータ(JSON.stringify()で文字列化してmessageで送信)
+{
+    id: "memorylink", // namespaceのようなもの、アンダーバーも使えるかもしれない
+    name: "MemoryLink", // 表示用の名前
+    version: [1, 0, 0], // 送信元のアドオンのバージョン(manifestのではなくてもよい、連携部分のシステムが変わったときに変更する)
+    features: [ // 前提アドオン、複数書ける
+        {
+            id: "linktest", // 前提アドオンのid
+            name: "LinkTest", // 前提アドオンの名前(違ってもよい)
+            version: [1, 0, 0] // 要求するバージョン
+        }
+    ]
+}
+
+残念ながら、このアドオンには正常に導入されたか確認する機能はまだないので、自分で確認する必要がある
+
+*/
 
 system.runTimeout(() => {
 

@@ -8,7 +8,8 @@ export const taskData = [
         tasks: [
             {
                 id: "taskbook",
-                type: 0
+                type: 0,
+                xp: 0
             }
         ]
     }
