@@ -1,36 +1,19 @@
-form.sinetask.main.title=メインメニュー
-form.sinetask.group.close=閉じる
-form.sinetask.group.completedamount=進捗達成数
-sinetask.uncomplate=§c[未達成] §r§f
-sinetask.complate=§a[達成済] §r§f
+memorylink.task.title=進捗の本
 
-sinetask.task.message=%sは進捗§a[%s]§r§fを達成した
-sinetask.goal.message=%sは目標§a[%s]§r§fを達成した
-sinetask.challenge.message=%sは挑戦§d[%s]§r§fを完了した
+memorylink.task.header.default=メインメニュー
 
-sinetask.ee.name=Exponential Enemy
+memorylink.task.completedamount=進捗達成数: 
 
-sinetask.ee:defeat1.name=長い旅だった
-sinetask.ee:defeat1.description=レベル 1 を討伐する\n§a現実攻撃による仮想攻撃力を10倍\n攻撃タブを解除§r§f
-sinetask.ee:attack_fail.name=あまりにも無謀
-sinetask.ee:attack_fail.description=有効数字によって攻撃が無効化される
-sinetask.ee:real_harsh.name=現実は非情
-sinetask.ee:real_harsh.description=現実攻撃力が 1 になる
-sinetask.ee:limit_image.name=想像の限界
-sinetask.ee:limit_image.description=現実攻撃力が 10 になる
+memorylink.task.uncomplate=§c[未達成] §r§f
+memorylink.task.complate=§a[達成済] §r§f
 
-sinetask.mac.name=Mine Crafter
+memorylink.task.0.message=%sは進捗§a[%s]§r§fを達成した
+memorylink.task.1.message=%sは目標§a[%s]§r§fを達成した
+memorylink.task.2.message=%sは挑戦§d[%s]§r§fを完了した
 
-sinetask.mac:big.name=極滅注意
-sinetask.mac:big.description=Mine Crafterを入手する
-sinetask.mac:useful.name=スマホでも使える
-sinetask.mac:useful.description=Mine Crafter Mobileを入手する
 
-sinetask.parry.name=Parry Addon
 
-sinetask.parry:pass.name=今日もやめておきます
-sinetask.parry:pass.description=パリィシールドを入手する
-sinetask.parry:hold.name=持てるわけがない
-sinetask.parry:hold.description=ランスを入手する
-sinetask.parry:swing.name=振れるわけがない
-sinetask.parry:swing.description=太刀を入手する
+memorylink.task.header.memorylink=Memory Link
+
+memorylink.task.memorylink.taskbook.name=TaskBook
+memorylink.task.memorylink.taskbook.description=Get a TaskBook.

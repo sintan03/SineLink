@@ -1,5 +1,5 @@
 export const ITEMS = {
-    taskBook: "memorylink:task_book"
+    taskBook: "minecraft:book"//"memorylink:task_book"
 };
 
 export const taskData = [
@@ -14,6 +14,17 @@ export const taskData = [
     }
 ];
 
-export const linkData = [
-    "memorylink"
-]
+export const nameColor = {
+    0: `§f`,
+    1: `§a`,
+    2: `§d`
+};
+
+export let linkData = {
+    memorylink: {
+        id: "memorylink",
+        name: "MemoryLink",
+        version: [1, 0, 0],
+        features: []
+    }
+};
