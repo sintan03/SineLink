@@ -1,3 +1,12 @@
+item.memorylink:task_book=Task Book
+
+
+
+memorylink.link.success=§r§e------------\n§d%s §awas successfully loaded\n§eVersion: §d%s\n§eRequired Add-ons:\n%s
+memorylink.link.fail=§r§e------------\n§d%s §cfailed to load\nVersion: §d%s\n§cRequired Add-ons:\n%s
+
+
+
 memorylink.task.title=Task Book
 
 memorylink.task.header.default=Main Menu
@@ -16,4 +25,4 @@ memorylink.task.2.message=%s completed the challenge §d[%s]§r§f
 memorylink.task.header.memorylink=Memory Link
 
 memorylink.task.memorylink.taskbook.name=TaskBook
-memorylink.task.memorylink.taskbook.description=Get a TaskBook.
+memorylink.task.memorylink.taskbook.description=Open the TaskBook.

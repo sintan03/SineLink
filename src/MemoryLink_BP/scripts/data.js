@@ -1,5 +1,5 @@
 export const ITEMS = {
-    taskBook: "minecraft:book"//"memorylink:task_book"
+    taskBook: "memorylink:task_book"
 };
 
 export const taskData = [
@@ -20,6 +20,7 @@ export const nameColor = {
     2: `§d`
 };
 
+/** @type { Record<String, { id: String, name: String, version: Number[], features: { id: String, name: String, version: Number[] }[] }> } */
 export let linkData = {
     memorylink: {
         id: "memorylink",

@@ -7,6 +7,19 @@ import "./task.js";
 
 
 
+system.runTimeout(() => {
+
+    const init = JSON.stringify({
+        id: "memorylink",
+        name: "MemoryLink",
+        version: [1, 0, 0],
+        features: []
+    });
+
+    system.sendScriptEvent(`memorylink:link`, init);
+
+}, 10);
+
 system.afterEvents.scriptEventReceive.subscribe(ev => {
 
     const { id, message } = ev;
@@ -20,49 +33,54 @@ system.afterEvents.scriptEventReceive.subscribe(ev => {
 
 });
 
+world.afterEvents.playerSpawn.subscribe(ev => {
 
+    const { player, initialSpawn } = ev;
+    if (!initialSpawn) return;
 
-system.runTimeout(() => {
+    system.runTimeout(() => {
 
-    let i = 0;
-    for (const key of Object.keys(linkData)) {
+        let i = 0;
+        for (const key of Object.keys(linkData)) {
 
-        i++;
+            i++;
 
-        /** @type { { id: String, name: String, version: Number[], features: { id: String, name: String, version: Number[] }[] } } */
-        const data = linkData[key];
-        const success = data.features.every(value => {
-            let forceTrue = false;
-            return value.version.every((element, index) => {
-                if (!forceTrue) {
-                    forceTrue = element < (linkData[value.id]?.version[index] ?? -1);
-                };
-                if (forceTrue) return true;
-                return element === (linkData[value.id]?.version[index] ?? -1);
+            /** @type { { id: String, name: String, version: Number[], features: { id: String, name: String, version: Number[] }[] } } */
+            const data = linkData[key];
+            const success = data.features.every(value => {
+                let forceTrue = false;
+                return value.version.every((element, index) => {
+                    if (!forceTrue) {
+                        forceTrue = element < (linkData[value.id]?.version[index] ?? -1);
+                    };
+                    if (forceTrue) return true;
+                    return element === (linkData[value.id]?.version[index] ?? -1);
+                });
             });
-        });
 
-        world.sendMessage({
-            rawtext: [{
-                translate: `memorylink.link.${success ? "success" : "fail"}`, with: {
-                    rawtext: [
-                        {
-                            text: `${data.name}`
-                        },
-                        {
-                            text: `${data.version.join(".")}`
-                        },
-                        {
-                            text: `${data.features.map(value => `§d${value.name}: ${value.version.join(".")}`).join("\n")}`
-                        }
-                    ]
+            player.sendMessage({
+                rawtext: [{
+                    translate: `memorylink.link.${success ? "success" : "fail"}`, with: {
+                        rawtext: [
+                            {
+                                text: `${data.name}`
+                            },
+                            {
+                                text: `${data.version.join(".")}`
+                            },
+                            {
+                                text: `${data.features.length === 0 ? "" : "\n"}${data.features.map(value => `§d${value.name}: ${value.version.join(".")}`).join("\n")}`
+                            }
+                        ]
+                    },
                 },
-            },
-            {
-                text: `${i === Object.keys(linkData).length ? "\n§e------------" : ""}`
-            }]
-        });
+                {
+                    text: `${i === Object.keys(linkData).length ? "\n§e------------" : ""}`
+                }]
+            });
 
-    };
+        };
 
-}, 100);
+    }, 100);
+
+});

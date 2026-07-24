@@ -1,0 +1,16 @@
+{
+    "format_version": "1.26.0",
+    "minecraft:item": {
+        "description": {
+            "identifier": "memorylink:task_book"
+        },
+        "components": {
+            "minecraft:icon": {
+                "textures": {
+                    "default": "memorylink:task_book"
+                }
+            },
+            "minecraft:interact_button": "Use Item"
+        }
+    }
+}

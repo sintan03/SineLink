@@ -5,60 +5,14 @@ import { ITEMS, linkData, nameColor, taskData } from "./data.js";
 
 
 
-system.runTimeout(() => {
-
-    const init = JSON.stringify({
-        id: "linktest",
-        name: "LinkTest",
-        version: [1, 0, 0],
-        features: [
-            {
-                id: "memorylink",
-                name: "MemoryLink",
-                version: [0, 0, 1]
-            }
-        ]
-    });
-
-    const initb = JSON.stringify({
-        id: "linktestb",
-        name: "LinkTestB",
-        version: [1, 0, 0],
-        features: [
-            {
-                id: "memorylink",
-                name: "MemoryLink",
-                version: [1, 0, 1]
-            }
-        ]
-    });
-
-    const data = JSON.stringify({
-        id: "linktest",
-        tasks: [
-            {
-                id: "testa",
-                type: 0
-            },
-            {
-                id: "testb",
-                type: 1
-            }
-        ]
-    });
-
-    system.sendScriptEvent(`memorylink:link`, init);
-    system.sendScriptEvent(`memorylink:link`, initb);
-    system.sendScriptEvent(`memorylink:task_add`, data);
-
-}, 20);
-
 world.afterEvents.itemUse.subscribe(ev => {
 
     const { source, itemStack } = ev;
     const itemId = itemStack.typeId;
 
     if (itemId === ITEMS.taskBook) {
+
+        source.runCommand(`scriptevent memorylink:task_achieve memorylink_taskbook`);
 
         const title = new ObservableUIRawMessage({ translate: `memorylink.task.title` }, { clientWritable: true });
         const form = new CustomForm(source, title);
@@ -192,8 +146,13 @@ system.afterEvents.scriptEventReceive.subscribe(ev => {
 
     } else if (id === `memorylink:task_add`) {
 
-        taskData.push(JSON.parse(message));
-        console.error(JSON.stringify(taskData));
+        const parsed = JSON.parse(message);
+        const foundData = taskData.find(value => value.id === parsed.id);
+        if (foundData === undefined) {
+            taskData.push(parsed);
+        } else {
+            foundData.tasks.push(...parsed.tasks);
+        };
 
     };
 
