@@ -22,11 +22,4 @@ export const nameColor = {
 };
 
 /** @type { Record<String, { id: String, name: String, version: Number[], features: { id: String, name: String, version: Number[] }[] }> } */
-export let linkData = {
-    memorylink: {
-        id: "memorylink",
-        name: "MemoryLink",
-        version: [1, 0, 0],
-        features: []
-    }
-};
+export let linkData = {};

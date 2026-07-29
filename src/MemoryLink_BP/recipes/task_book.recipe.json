@@ -1,0 +1,60 @@
+{
+    "format_version": "1.20.10",
+    "minecraft:recipe_shapeless": {
+        "description": {
+            "identifier": "memorylink:task_book.recipe"
+        },
+        "tags": [ "crafting_table" ],
+        "priority": 1,
+        "ingredients": [
+            {
+                "item": "minecraft:short_grass",
+                "count": 1
+            },
+            {
+                "item": "minecraft:short_grass",
+                "count": 1
+            },
+            {
+                "item": "minecraft:short_grass",
+                "count": 1
+            },
+            {
+                "item": "minecraft:short_grass",
+                "count": 1
+            },
+            {
+                "item": "minecraft:book",
+                "count": 1
+            },
+            {
+                "item": "minecraft:short_grass",
+                "count": 1
+            },
+            {
+                "item": "minecraft:short_grass",
+                "count": 1
+            },
+            {
+                "item": "minecraft:short_grass",
+                "count": 1
+            },
+            {
+                "item": "minecraft:short_grass",
+                "count": 1
+            }
+        ],
+        "unlock": [
+            {
+                "item": "minecraft:crafting_table"
+            },
+            {
+                "item": "minecraft:book"
+            }
+        ],
+        "result": {
+            "item": "memorylink:task_book",
+            "count": 1
+        }
+    }
+}

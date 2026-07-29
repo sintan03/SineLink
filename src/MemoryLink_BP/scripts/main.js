@@ -9,8 +9,8 @@ import "./task.js";
 
 連携システム
 
-連携の情報を送るにはscripteventを使用します
-idは"memorylink:link"です
+連携の情報を送るにはscripteventを使用します(遅延20tick程度にしてくれるとありがたい)
+id:"memorylink:link"
 送信するデータ(JSON.stringify()で文字列化してmessageで送信)
 {
     id: "memorylink", // namespaceのようなもの、アンダーバーも使えるかもしれない
@@ -25,7 +25,32 @@ idは"memorylink:link"です
     ]
 }
 
-残念ながら、このアドオンには正常に導入されたか確認する機能はまだないので、自分で確認する必要がある
+正常に導入出来れば"scriptevent memorylink:link_success <id>"が実行されます、上手くいじってあげてください
+
+
+
+進捗システム
+
+やっぱりscriptevent
+id:"memorylink:task_add"
+{
+    id: "memorylink", // 翻訳キーに使う
+    tasks: [ // 進捗データ、複数書ける
+        {
+            id: "taskbook", // 翻訳キーに使う
+            type: 0, // 進捗:0, 目標:1, 挑戦:2
+            xp: 0 // そのまま
+        }
+    ]
+}
+
+headerの翻訳キー:"memorylink.task.header.<id>"
+進捗名の翻訳キー:"memorylink.task.<id>.<tasks.id>.name"
+説明文の翻訳キー:"memorylink.task.<id>.<tasks.id>.description"
+
+進捗達成コマンド(実行者が必要):"scriptevent memorylink:task_achieve <id>_<tasks.id>"
+
+進捗のデータは同時に入れなくてもよい(データのidが同じなら続きに追加してくれる)
 
 */
 
@@ -100,6 +125,10 @@ world.afterEvents.playerSpawn.subscribe(ev => {
                     text: `${i === Object.keys(linkData).length ? "\n§e------------" : ""}`
                 }]
             });
+
+            if (success) {
+                system.sendScriptEvent(`memorylink:link_success`, `${data.id}`);
+            };
 
         };
 

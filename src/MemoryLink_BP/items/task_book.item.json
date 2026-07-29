@@ -10,6 +10,7 @@
                     "default": "memorylink:task_book"
                 }
             },
+            "minecraft:max_stack_size": 1,
             "minecraft:interact_button": "Use Item"
         }
     }
