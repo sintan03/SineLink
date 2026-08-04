@@ -1,0 +1,26 @@
+{
+    "format_version": "1.21.50",
+    "sound_definitions": {
+        "sinetask.ui.toast.in": {
+            "category": "ui",
+            "sounds": [{
+                "name": "sounds/ui/In",
+                "is3D": false
+            }]
+        },
+        "sinetask.ui.toast.out": {
+            "category": "ui",
+            "sounds": [{
+                "name": "sounds/ui/Out",
+                "is3D": false
+            }]
+        },
+        "sinetask.ui.toast.challenge_complete": {
+            "category": "ui",
+            "sounds": [{
+                "name": "sounds/ui/Challenge_complete",
+                "is3D": false
+            }]
+        }
+    }
+}

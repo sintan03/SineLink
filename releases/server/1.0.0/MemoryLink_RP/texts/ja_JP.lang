@@ -1,0 +1,28 @@
+item.memorylink:task_book=進捗の本
+
+
+
+memorylink.link.success=§r§e------------\n§d%s §aの導入に成功しました\n§eバージョン: §d%s\n§e前提アドオン:%s
+memorylink.link.fail=§r§e------------\n§d%s §cの導入に失敗しました\nバージョン: §d%s\n§c前提アドオン:%s
+
+
+
+memorylink.task.title=進捗の本
+
+memorylink.task.header.default=メインメニュー
+
+memorylink.task.completedamount=進捗達成数: 
+
+memorylink.task.uncomplate=§c[未達成] §r§f
+memorylink.task.complate=§a[達成済] §r§f
+
+memorylink.task.0.message=%sが進捗§a[%s]§r§fを達成しました
+memorylink.task.1.message=%sが目標§a[%s]§r§fを達成しました
+memorylink.task.2.message=%sが挑戦§d[%s]§r§fを完了しました
+
+
+
+memorylink.task.header.memorylink=Memory Link
+
+memorylink.task.memorylink.taskbook.name=進捗の本
+memorylink.task.memorylink.taskbook.description=進捗の本を開く

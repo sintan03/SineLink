@@ -1,0 +1,28 @@
+{
+  "format_version": 2,
+  "header": {
+    "name": "MemoryLink",
+    "description": "連携+進捗アドオン",
+    "uuid": "fcbd1064-671f-4363-bdd5-60407f83bedc",
+    "version": [1, 0, 0],
+    "min_engine_version": [
+      1,
+      21,
+      101
+    ]
+  },
+  "modules": [
+    {
+      "description": "連携+進捗アドオン",
+      "type": "resources",
+      "uuid": "2f60b548-1ec0-4f93-9bc0-7b244eb4d966",
+      "version": [1, 0, 0]
+    }
+  ],
+  "dependencies": [
+    {
+      "uuid": "212f35cb-17fc-48c2-a271-234557652325",
+      "version": [1, 0, 0]
+    }
+  ]
+}
