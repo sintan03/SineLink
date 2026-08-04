@@ -129,10 +129,12 @@ system.afterEvents.scriptEventReceive.subscribe(ev => {
             const taskId = messageSplit[0];
             const taskName = messageSplit.filter((value, index) => index !== 0).join("_");
             const foundData = taskData.find(value => value.id === taskId).tasks.find(value => value.id === taskName);
+            if (!foundData) return;
+            
             const taskType = foundData.type;
 
             world.sendMessage({ translate: `memorylink.task.${taskType}.message`, with: { rawtext: [{ text: sourceEntity.nameTag }, { translate: `memorylink.task.${taskId}.${taskName}.name` }] } });
-            sourceEntity.addExperience(foundData.xp);
+            sourceEntity.addExperience(foundData.xp || 0);
             sourceEntity.playSound(`sinetask.ui.toast.in`, sourceEntity.location);
             system.runTimeout(() => {
                 sourceEntity.playSound(`sinetask.ui.toast.out`, sourceEntity.location);
@@ -155,6 +157,19 @@ system.afterEvents.scriptEventReceive.subscribe(ev => {
         } else {
             foundData.tasks.push(...parsed.tasks);
         };
+
+    };
+
+});
+
+world.afterEvents.playerSpawn.subscribe(ev => {
+
+    const { player, initialSpawn } = ev;
+    if (!initialSpawn) return;
+    if (!player.hasTag(`memorylink_initial`)) {
+
+        player.runCommand(`give @s memorylink:task_book`);
+        player.addTag(`memorylink_initial`);
 
     };
 
